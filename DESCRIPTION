@@ -1,16 +1,16 @@
 Package: pcsurvey
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Random selection of cases
 Version: 0.1.0
 Authors@R: c(
     person(
-      "Jane", "Doe",
-      email = "jane@example.com",
+      "Pachalo", "Chizala",
+      email = "pachalochizala@gmail.com",
       role = c("aut", "cre")
     )
   )
-Description: More about what it does (maybe more than one line).
-    Continuation lines should be indented.
+Description: This package contains a list of functions that perform survey operations including sampling.
+    Visit for more detailed information.
 License: MIT + file LICENSE
 Encoding: UTF-8
 LazyData: true

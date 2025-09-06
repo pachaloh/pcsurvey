@@ -13,7 +13,7 @@
 
 #' Sample units using systematic random sampling
 #'
-#' @param data A data frame object
+#' @param data A data frame object. Make sure one column name is refereed to as
 #' @param nsize Number of units to be sampled in each cluster
 #'
 #' @returns Returns the the data frame object with additional rows that mark selected units, probability of select, etc

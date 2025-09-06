@@ -1,0 +1,60 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# pcsurvey
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The goal of pcsurvey is to perform some sampling with ease. There are currently two functions that sample cases with proportion to size of stratum (pc_pps_survey), and sample same number of cases from ea_code (pc_sample_hh_survey).
+
+## Installation
+
+You can install the development version of pcsurvey from [GitHub](https://github.com/) with:
+
+``` r
+devtools::install_github("pachaloh/pcsurvey")
+```
+
+## Example
+
+Here are basic examples which demonstrates usage of the package:
+
+```{r example}
+library(pcsurvey)
+set.seed(1000)
+stratum = rep(c(1,2),c(30,50))
+cluster <- c(1:30,1:50)
+cluster_pop <- sample(365:1309,80,replace=TRUE)
+sample_frame <- data.frame(stratum,cluster, cluster_pop)
+sample <- pc_pps_survey(sample_frame,10)
+sample <- pc_pps_survey(sample_frame,nsize = c(10,7))
+```
+
+What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
+
+```{r cars}
+summary(cars)
+```
+
+You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
+
+You can also embed plots, for example:
+
+```{r pressure, echo = FALSE}
+plot(pressure)
+```
+
+In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.

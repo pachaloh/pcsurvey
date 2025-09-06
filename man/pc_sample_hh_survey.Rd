@@ -7,7 +7,7 @@
 pc_sample_hh_survey(data, nsize = 20)
 }
 \arguments{
-\item{data}{A data frame object}
+\item{data}{A data frame object. Make sure one column name is refereed to as}
 
 \item{nsize}{Number of units to be sampled in each cluster}
 }
