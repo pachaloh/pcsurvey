@@ -19,3 +19,7 @@ Imports:
     dplyr,
     writexl
 URL: https://pachaloh.github.io/pcsurvey/
+Suggests: 
+    knitr,
+    rmarkdown
+VignetteBuilder: knitr
