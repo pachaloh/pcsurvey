@@ -35,7 +35,8 @@
 <li class="nav-item dropdown">
   <button class="nav-link dropdown-toggle" type="button" id="dropdown-articles" data-bs-toggle="dropdown" aria-expanded="false" aria-haspopup="true">Articles</button>
   <ul class="dropdown-menu" aria-labelledby="dropdown-articles">
-<li><a class="dropdown-item" href="articles/pcsurvey-vignette.html">pcsurvey-vignette</a></li>
+<li><a class="dropdown-item" href="articles/pc_pps_survey-vignette.html">pc_pps_survey-vignette</a></li>
+    <li><a class="dropdown-item" href="articles/pcsurvey-vignette.html">pcsurvey-vignette</a></li>
   </ul>
 </li>
       </ul>
@@ -54,7 +55,7 @@
 <div class="page-header"><h1 id="pcsurvey">pcsurvey<a class="anchor" aria-label="anchor" href="#pcsurvey"></a>
 </h1></div>
 <!-- badges: start -->
-<!-- badges: end -->
+
 <p>The goal of pcsurvey is to perform some sampling with ease. There are currently two functions that sample cases with proportion to size of stratum (pc_pps_survey), and sample same number of cases from ea_code (pc_sample_hh_survey).</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -62,6 +63,12 @@
 <p>You can install the development version of pcsurvey from <a href="https://github.com/" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"pachaloh/pcsurvey"</span><span class="op">)</span></span></code></pre></div>
+</div>
+<div class="section level2">
+<h2 id="how-to-use">How to use<a class="anchor" aria-label="anchor" href="#how-to-use"></a>
+</h2>
+<p>For the functions to work properly, your data must be structured in a specific format.</p>
+<p>If you plan to select enumeration areas or clusters within a stratum proportional to their sizes, use pc_pps_survey() function. Your data frame must contain stratum, cluster and cluster_pop columns</p>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
@@ -97,16 +104,6 @@
 <span><span class="co">#&gt; Random start:  2672.159 </span></span>
 <span><span class="co">#&gt; Number of clusters:  50</span></span></code></pre></div>
 <p>What is special about using <code>README.Rmd</code> instead of just <code>README.md</code>? You can include R chunks like so:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/summary.html" class="external-link">summary</a></span><span class="op">(</span><span class="va">cars</span><span class="op">)</span></span>
-<span><span class="co">#&gt;      speed           dist       </span></span>
-<span><span class="co">#&gt;  Min.   : 4.0   Min.   :  2.00  </span></span>
-<span><span class="co">#&gt;  1st Qu.:12.0   1st Qu.: 26.00  </span></span>
-<span><span class="co">#&gt;  Median :15.0   Median : 36.00  </span></span>
-<span><span class="co">#&gt;  Mean   :15.4   Mean   : 42.98  </span></span>
-<span><span class="co">#&gt;  3rd Qu.:19.0   3rd Qu.: 56.00  </span></span>
-<span><span class="co">#&gt;  Max.   :25.0   Max.   :120.00</span></span></code></pre></div>
-<p>You’ll still need to render <code>README.Rmd</code> regularly, to keep <code>README.md</code> up-to-date. <code>devtools::build_readme()</code> is handy for this.</p>
 <p>You can also embed plots, for example:</p>
 <p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
 <p>In that case, don’t forget to commit and push the resulting figure files, so they display on GitHub and CRAN.</p>
@@ -135,7 +132,12 @@
 </ul>
 </div>
 
-
+<div class="dev-status">
+<h2 data-toc-skip>Dev status</h2>
+<ul class="list-unstyled">
+<li><a href="https://github.com/pachaloh/pcsurvey/actions/workflows/R-CMD-check.yaml" class="external-link"><img src="https://github.com/pachaloh/pcsurvey/actions/workflows/R-CMD-check.yaml/badge.svg" alt="R-CMD-check"></a></li>
+</ul>
+</div>
 
   </aside>
 </div>

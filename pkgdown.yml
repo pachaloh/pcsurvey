@@ -2,8 +2,9 @@ pandoc: 3.1.11
 pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
+  pc_pps_survey-vignette: pc_pps_survey-vignette.html
   pcsurvey-vignette: pcsurvey-vignette.html
-last_built: 2025-09-06T22:11Z
+last_built: 2025-09-07T15:03Z
 urls:
   reference: https://pachaloh.github.io/pcsurvey/reference
   article: https://pachaloh.github.io/pcsurvey/articles
