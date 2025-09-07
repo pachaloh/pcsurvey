@@ -50,18 +50,4 @@ sample <- pc_pps_survey(sample_frame,10)
 sample <- pc_pps_survey(sample_frame,nsize = c(10,7))
 ```
 
-What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
-```{r cars}
-
-```
-
-
-
-You can also embed plots, for example:
-
-```{r pressure, echo = FALSE}
-plot(pressure)
-```
-
-In that case, don't forget to commit and push the resulting figure files, so they display on GitHub and CRAN.

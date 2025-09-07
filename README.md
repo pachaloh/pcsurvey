@@ -43,35 +43,5 @@ cluster <- c(1:30,1:50)
 cluster_pop <- sample(365:1309,80,replace=TRUE)
 sample_frame <- data.frame(stratum,cluster, cluster_pop)
 sample <- pc_pps_survey(sample_frame,10)
-#> Stratum:  1 
-#> Nsize:  10 
-#> Interval:  2563.8 
-#> Random start:  1237.226 
-#> Number of clusters:  30 
-#> Stratum:  2 
-#> Nsize:  10 
-#> Interval:  4288.2 
-#> Random start:  1173.886 
-#> Number of clusters:  50
 sample <- pc_pps_survey(sample_frame,nsize = c(10,7))
-#> Stratum:  1 
-#> Nsize:  10 
-#> Interval:  2563.8 
-#> Random start:  1062.766 
-#> Number of clusters:  30 
-#> Stratum:  2 
-#> Nsize:  7 
-#> Interval:  6126 
-#> Random start:  2672.159 
-#> Number of clusters:  50
 ```
-
-What is special about using `README.Rmd` instead of just `README.md`?
-You can include R chunks like so:
-
-You can also embed plots, for example:
-
-<img src="man/figures/README-pressure-1.png" width="100%" />
-
-In that case, don’t forget to commit and push the resulting figure
-files, so they display on GitHub and CRAN.
