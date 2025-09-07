@@ -7,9 +7,13 @@
 pc_pps_survey(data, nsize = 20)
 }
 \arguments{
-\item{data}{A data frame object}
+\item{data}{A data frame object. The data frame must have a column that specifies strata,
+named stratum, a column that specifies clusters, named cluster, and a column that has size
+of the cluster, named cluster_pop.}
 
-\item{nsize}{Number of units to be sampled}
+\item{nsize}{Number of units to be sampled. If a single number is specified, then equal
+number of clusters will be sampled from each stratum. If a vector is fed instead, then
+number of units sampled will depend on the order of the strata in the data frame. To avoid confusions, you must sort your data by stratum before}
 }
 \value{
 Returns the the data frame object with additional rows that mark selected units, probability of select, etc
@@ -23,9 +27,6 @@ stratum = rep(c(1,2),c(30,50))
 cluster <- c(1:30,1:50)
 cluster_pop <- sample(365:1309,80,replace=TRUE)
 sample_frame <- data.frame(stratum,cluster, cluster_pop)
-pc_pps_survey(sample_frame,10)
-sample <- pc_pps_survey(sample_frame,nsize = c(10,7))
-
-
-
+pc_pps_survey(data = sample_frame,nsize = 10)
+pc_pps_survey(data = sample_frame,nsize = c(10,7))
 }

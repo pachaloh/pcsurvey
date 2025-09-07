@@ -16,6 +16,7 @@ knitr::opts_chunk$set(
 # pcsurvey
 
 <!-- badges: start -->
+[![R-CMD-check](https://github.com/pachaloh/pcsurvey/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pachaloh/pcsurvey/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The goal of pcsurvey is to perform some sampling with ease. There are currently two functions that sample cases with proportion to size of stratum (pc_pps_survey), and sample same number of cases from ea_code (pc_sample_hh_survey).
@@ -27,6 +28,12 @@ You can install the development version of pcsurvey from [GitHub](https://github
 ``` r
 devtools::install_github("pachaloh/pcsurvey")
 ```
+## How to use
+
+For the functions to work properly, your data must be structured in a specific format. 
+
+If you plan to select enumeration areas or clusters within a stratum proportional to their sizes, use pc_pps_survey() function. Your data frame must contain stratum, cluster and cluster_pop columns
+
 
 ## Example
 
@@ -46,10 +53,10 @@ sample <- pc_pps_survey(sample_frame,nsize = c(10,7))
 What is special about using `README.Rmd` instead of just `README.md`? You can include R chunks like so:
 
 ```{r cars}
-summary(cars)
+
 ```
 
-You'll still need to render `README.Rmd` regularly, to keep `README.md` up-to-date. `devtools::build_readme()` is handy for this.
+
 
 You can also embed plots, for example:
 

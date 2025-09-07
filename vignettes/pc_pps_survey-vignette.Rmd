@@ -15,5 +15,5 @@ knitr::opts_chunk$set(
 ```
 
 ```{r setup}
-library(pc_pps_survey)
+library(pcsurvey)
 ```

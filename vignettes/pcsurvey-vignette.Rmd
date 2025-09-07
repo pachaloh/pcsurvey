@@ -1,5 +1,7 @@
 ---
 title: "pcsurvey-vignette"
+author: "Pachalo Chizala"
+date: "`r Sys.Date()`"
 output: rmarkdown::html_vignette
 vignette: >
   %\VignetteIndexEntry{pcsurvey-vignette}

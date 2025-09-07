@@ -4,8 +4,13 @@
 
 #' Sample units with proportional to size of the primary unit
 #'
-#' @param data A data frame object
-#' @param nsize Number of units to be sampled
+#' @param data A data frame object. The data frame must have a column that specifies strata,
+#' named stratum, a column that specifies clusters, named cluster, and a column that has size
+#' of the cluster, named cluster_pop.
+#'
+#' @param nsize Number of units to be sampled. If a single number is specified, then equal
+#' number of clusters will be sampled from each stratum. If a vector is fed instead, then
+#' number of units sampled will depend on the order of the strata in the data frame. To avoid confusions, you must sort your data by stratum before
 #'
 #' @returns Returns the the data frame object with additional rows that mark selected units, probability of select, etc
 #' @export
@@ -16,11 +21,8 @@
 #' cluster <- c(1:30,1:50)
 #' cluster_pop <- sample(365:1309,80,replace=TRUE)
 #' sample_frame <- data.frame(stratum,cluster, cluster_pop)
-#' pc_pps_survey(sample_frame,10)
-#' sample <- pc_pps_survey(sample_frame,nsize = c(10,7))
-#'
-#'
-#'
+#' pc_pps_survey(data = sample_frame,nsize = 10)
+#' pc_pps_survey(data = sample_frame,nsize = c(10,7))
 
 pc_pps_survey = function (data, nsize = 20){
 
@@ -52,12 +54,12 @@ pc_pps_survey = function (data, nsize = 20){
     randStart    <- stats::runif(1)*interval_k                                   # Random start
 
 
-    #Systematically select (rows of) clusters (Adopted from MICS)
-    cat("Stratum: ",i,"\n")
-    cat("Nsize: ",nsize[tracker],"\n")
-    cat("Interval: ",interval_k,"\n")
-    cat("Random start: ",randStart,"\n")
-    cat("Number of clusters: ",nrow(stratum_data),"\n")
+    # #Systematically select (rows of) clusters (Adopted from MICS)
+    # cat("Stratum: ",i,"\n")
+    # cat("Nsize: ",nsize[tracker],"\n")
+    # cat("Interval: ",interval_k,"\n")
+    # cat("Random start: ",randStart,"\n")
+    # cat("Number of clusters: ",nrow(stratum_data),"\n")
 
     for(ctr in 1:nsize[tracker])
     {
@@ -117,7 +119,7 @@ pc_pps_survey = function (data, nsize = 20){
       dplyr::full_join(selected_clusters, by = "sampleSel") |>
       dplyr::arrange(cluster)
 
-    writexl::write_xlsx(stratum_data,paste0("sampled_pps_stratum_",i,".xlsx"))
+    #writexl::write_xlsx(stratum_data,paste0("sampled_pps_stratum_",i,".xlsx"))
 
     #View(stratum_data)
 
@@ -139,8 +141,8 @@ pc_pps_survey = function (data, nsize = 20){
 
 
 
-  writexl::write_xlsx(selected_eas,"selected_eas.xlsx")
-  writexl::write_xlsx(sampled_pps_data,"sampled_pps_data.xlsx")
+  #writexl::write_xlsx(selected_eas,"selected_eas.xlsx")
+  #writexl::write_xlsx(sampled_pps_data,"sampled_pps_data.xlsx")
 
   return(list(sampled_pps_data = sampled_pps_data))
 
