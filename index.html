@@ -22,7 +22,7 @@
 
     <a class="navbar-brand me-2" href="index.html">pcsurvey</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">1.1.0</small>
 
 
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -82,31 +82,7 @@
 <span><span class="va">cluster_pop</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/sample.html" class="external-link">sample</a></span><span class="op">(</span><span class="fl">365</span><span class="op">:</span><span class="fl">1309</span>,<span class="fl">80</span>,replace<span class="op">=</span><span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="va">sample_frame</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">stratum</span>,<span class="va">cluster</span>, <span class="va">cluster_pop</span><span class="op">)</span></span>
 <span><span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/pc_pps_survey.html">pc_pps_survey</a></span><span class="op">(</span><span class="va">sample_frame</span>,<span class="fl">10</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Stratum:  1 </span></span>
-<span><span class="co">#&gt; Nsize:  10 </span></span>
-<span><span class="co">#&gt; Interval:  2563.8 </span></span>
-<span><span class="co">#&gt; Random start:  1237.226 </span></span>
-<span><span class="co">#&gt; Number of clusters:  30 </span></span>
-<span><span class="co">#&gt; Stratum:  2 </span></span>
-<span><span class="co">#&gt; Nsize:  10 </span></span>
-<span><span class="co">#&gt; Interval:  4288.2 </span></span>
-<span><span class="co">#&gt; Random start:  1173.886 </span></span>
-<span><span class="co">#&gt; Number of clusters:  50</span></span>
-<span><span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/pc_pps_survey.html">pc_pps_survey</a></span><span class="op">(</span><span class="va">sample_frame</span>,nsize <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span></span>
-<span><span class="co">#&gt; Stratum:  1 </span></span>
-<span><span class="co">#&gt; Nsize:  10 </span></span>
-<span><span class="co">#&gt; Interval:  2563.8 </span></span>
-<span><span class="co">#&gt; Random start:  1062.766 </span></span>
-<span><span class="co">#&gt; Number of clusters:  30 </span></span>
-<span><span class="co">#&gt; Stratum:  2 </span></span>
-<span><span class="co">#&gt; Nsize:  7 </span></span>
-<span><span class="co">#&gt; Interval:  6126 </span></span>
-<span><span class="co">#&gt; Random start:  2672.159 </span></span>
-<span><span class="co">#&gt; Number of clusters:  50</span></span></code></pre></div>
-<p>What is special about using <code>README.Rmd</code> instead of just <code>README.md</code>? You can include R chunks like so:</p>
-<p>You can also embed plots, for example:</p>
-<p><img src="reference/figures/README-pressure-1.png" width="100%"></p>
-<p>In that case, don’t forget to commit and push the resulting figure files, so they display on GitHub and CRAN.</p>
+<span><span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/pc_pps_survey.html">pc_pps_survey</a></span><span class="op">(</span><span class="va">sample_frame</span>,nsize <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="license">
