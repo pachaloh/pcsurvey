@@ -8,11 +8,9 @@
 [![R-CMD-check](https://github.com/pachaloh/pcsurvey/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pachaloh/pcsurvey/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The pcsurvey package provide a list of tools to seamlessly perform
-survey operations, including sampling. pc_pps_survey(), for example,
-sample clusters with proportion to their size of stratum
-(pc_pps_survey), and sample same number of cases from ea_code
-(pc_sample_hh_survey).
+The pcsurvey package provide a list of tools to perform some survey
+operations. With these tools, you would sample units from a population,
+delete empty columns and work on duplicates.
 
 ## Installation
 
@@ -31,21 +29,20 @@ To use the functions contained within, load the pcsurvey package first.
 library(pcsurvey)
 ```
 
-If interest is to sample clusters in a stratum proportional to their
-sizes, use
+If interest is to sample units proportional to their sizes, use
 [pc_pps_survey()](https://pachaloh.github.io/pcsurvey/reference/pc_pps_survey.html)
 function. For example, your task would be to sample enumerations
-areas(EAs) from traditional authority (TA); or to sample to TAs from a
-district; or EAs from a district. With this setup, you must define the
-upper level as stratum, and the lower level as clusters.
+areas(EAs) within districts. With this setup, the primary sampling unit
+becomes the EA, and district becomes your stratum. For the function to
+work properly, your data frame of primary units must have three columns:
 
-Folowing from this, your data frame must have three columns named
-stratum, cluster and cluster_pop. cluster_pop must contain corresponding
-sizes of each cluster.
+- stratum, that specifies strata from which the primary units is
+- cluster, that identifies the primary units and
+- cluster_pop that contains corresponding sizes of each primary unit
+  (cluster).
 
-## Example
-
-Here are basic examples which demonstrates usage of the package:
+Here is a basic example which demonstrates usage of the package
+function:
 
 ``` r
 set.seed(1000)
@@ -72,3 +69,5 @@ sample_frame <- data.frame(ea_code,hhno)
 
 sample <- pc_sample_hh_survey(sample_frame,10)
 ```
+
+## Future updates

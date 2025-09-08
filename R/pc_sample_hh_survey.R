@@ -63,7 +63,7 @@ pc_sample_hh_survey = function (data, nsize = 20){
   }
 
   sampled.hhs <- sampled.hhs[rowSums(is.na(sampled.hhs)) != ncol(sampled.hhs),]       #Remove empty rows
-  writexl::write_xlsx(sampled.hhs,"sample.xlsx")
+  #writexl::write_xlsx(sampled.hhs,"sample.xlsx")
 
   #View(sampled.hhs)
 
