@@ -56,7 +56,7 @@
 </h1></div>
 <!-- badges: start -->
 
-<p>The pcsurvey package provide a list of tools to perform some survey operations. With these tools, you would sample units from a population, delete empty columns and work on duplicates.</p>
+<p>The pcsurvey package provide a list of tools to perform some common survey related statistical operations, including sampling clusters within strata with proportional to size, systematic sampling of units within a cluster, deleting empty columns and working on duplicates.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -70,7 +70,10 @@
 <p>To use the functions contained within, load the pcsurvey package first.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://pachaloh.github.io/pcsurvey/">pcsurvey</a></span><span class="op">)</span></span></code></pre></div>
-<p>If interest is to sample units proportional to their sizes, use <a href="https://pachaloh.github.io/pcsurvey/reference/pc_pps_survey.html">pc_pps_survey()</a> function. For example, your task would be to sample enumerations areas(EAs) within districts. With this setup, the primary sampling unit becomes the EA, and district becomes your stratum. For the function to work properly, your data frame of primary units must have three columns:</p>
+<div class="section level3">
+<h3 id="sampling-with-proportional-to-size">sampling with proportional to size<a class="anchor" aria-label="anchor" href="#sampling-with-proportional-to-size"></a>
+</h3>
+<p>If interest is to sample units, say clusters, proportional to their sizes, <a href="https://pachaloh.github.io/pcsurvey/reference/pc_pps_survey.html">pc_pps_survey()</a> is the function. For example, your task would be to sample enumerations areas(EAs) within districts. With this setup, the primary sampling unit becomes the EA, and district becomes your stratum. For the function to work properly, your data frame of primary units must have three columns:</p>
 <ul>
 <li>stratum, that specifies strata from which the primary units is</li>
 <li>cluster, that identifies the primary units and</li>
@@ -86,7 +89,11 @@
 <span></span>
 <span><span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/pc_pps_survey.html">pc_pps_survey</a></span><span class="op">(</span><span class="va">sample_frame</span>,<span class="fl">10</span><span class="op">)</span></span>
 <span><span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/pc_pps_survey.html">pc_pps_survey</a></span><span class="op">(</span><span class="va">sample_frame</span>,nsize <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">10</span>,<span class="fl">7</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>If, however, interest is to sample same number of cases in and area, use pc_sample_hh_survey() function. This is more applicable when sampling households within an enumeration area. The area to sample from, must be named “ea_code”. The function samples the same number of cases from each ea_code. By default, it samples 20 cases.</p>
+</div>
+<div class="section level3">
+<h3 id="systematic-sampling">Systematic sampling<a class="anchor" aria-label="anchor" href="#systematic-sampling"></a>
+</h3>
+<p>If, however, interest is to sample units using systematic technique, <a href="https://pachaloh.github.io/pcsurvey/reference/pc_sample_hh_survey.html">pc_sample_hh_survey()</a> comes in handy. This is more applicable when sampling households within different clusters. The data frame must contain an “ea_code” column that identifies an EA/cluster the units belong to. The same number of units is sampled from each ea_code. By default, it samples 20 cases.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/base/Random.html" class="external-link">set.seed</a></span><span class="op">(</span><span class="fl">1000</span><span class="op">)</span></span>
 <span><span class="va">ea_code</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/rep.html" class="external-link">rep</a></span><span class="op">(</span><span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">1</span>,<span class="fl">2</span><span class="op">)</span>,<span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="fl">30</span>,<span class="fl">50</span><span class="op">)</span><span class="op">)</span></span>
@@ -94,6 +101,7 @@
 <span><span class="va">sample_frame</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/data.frame.html" class="external-link">data.frame</a></span><span class="op">(</span><span class="va">ea_code</span>,<span class="va">hhno</span><span class="op">)</span></span>
 <span></span>
 <span><span class="va">sample</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/pc_sample_hh_survey.html">pc_sample_hh_survey</a></span><span class="op">(</span><span class="va">sample_frame</span>,<span class="fl">10</span><span class="op">)</span></span></code></pre></div>
+</div>
 </div>
 <div class="section level2">
 <h2 id="future-updates">Future updates<a class="anchor" aria-label="anchor" href="#future-updates"></a>
