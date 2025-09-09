@@ -16,8 +16,7 @@ Encoding: UTF-8
 LazyData: true
 RoxygenNote: 7.3.2
 Imports: 
-    dplyr,
-    writexl
+    dplyr
 URL: https://pachaloh.github.io/pcsurvey/
 Suggests: 
     knitr,

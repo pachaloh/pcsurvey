@@ -19,7 +19,7 @@ knitr::opts_chunk$set(
 [![R-CMD-check](https://github.com/pachaloh/pcsurvey/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/pachaloh/pcsurvey/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
-The pcsurvey package provide a list of tools to perform some survey operations. With these tools, you would sample units from a population, delete empty columns and work on duplicates. 
+The pcsurvey package provide a list of tools to perform some common survey related statistical operations, including sampling clusters within strata with proportional to size, systematic sampling of units within a cluster, deleting empty columns and working on duplicates. 
 
 ## Installation
 
@@ -35,7 +35,9 @@ To use the functions contained within, load the pcsurvey package first.
 library(pcsurvey)
 ```
 
-If interest is to sample units proportional to their sizes, use [pc_pps_survey()](https://pachaloh.github.io/pcsurvey/reference/pc_pps_survey.html) function. For example, your task would be to sample enumerations areas(EAs) within districts. With this setup, the primary sampling unit becomes the EA, and district becomes your stratum. For the function to work properly, your data frame of primary units must have three columns:
+### sampling with proportional to size
+
+If interest is to sample units, say clusters, proportional to their sizes, [pc_pps_survey()](https://pachaloh.github.io/pcsurvey/reference/pc_pps_survey.html) is the function. For example, your task would be to sample enumerations areas(EAs) within districts. With this setup, the primary sampling unit becomes the EA, and district becomes your stratum. For the function to work properly, your data frame of primary units must have three columns:
 
   - stratum, that specifies strata from which the primary units is 
   - cluster, that identifies the primary units and 
@@ -54,7 +56,9 @@ sample <- pc_pps_survey(sample_frame,10)
 sample <- pc_pps_survey(sample_frame,nsize = c(10,7))
 ```
 
-If, however, interest is to sample same number of cases in and area, use pc_sample_hh_survey() function. This is more applicable when sampling households within an enumeration area. The area to sample from, must be named "ea_code". The function samples the same number of cases from each ea_code. By default, it samples 20 cases.
+### Systematic sampling
+
+If, however, interest is to sample units using systematic technique, [pc_sample_hh_survey()](https://pachaloh.github.io/pcsurvey/reference/pc_sample_hh_survey.html) comes in handy. This is more applicable when sampling households within different clusters. The data frame must contain an "ea_code" column that identifies an EA/cluster the units belong to. The same number of units is sampled from each ea_code. By default, it samples 20 cases.
 
 ```{r}
 set.seed(1000)
