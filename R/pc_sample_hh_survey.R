@@ -26,12 +26,12 @@ pc_sample_hh_survey = function (data, nsize = 20){
 
 
   data <- data[rowSums(is.na(data)) != ncol(data),]                     #Remove empty rows
-  sampled.hhs  <- data.frame()                                                    #Container to hold sampled hhs
-  ea_codes     <- sort(unique(data$ea_code))                            #Extract unique EA values/codes
+  sampled.hhs  <- data.frame()                                          #Container to hold sampled hhs
+  clusters     <- sort(unique(data$cluster))                            #Extract unique EA values/codes
 
-  for (i in ea_codes){                                                	#Loop through the unique values of EAs
+  for (i in clusters){                                                	#Loop through the unique values of EAs
 
-    ea_data <- data[which(data$ea_code==i),]                            #Data for a selected EA
+    ea_data <- data[which(data$cluster==i),]                            #Data for a selected EA
     sampleSel <- c()                                                    #Clear up the container for selected hhs
     interval_k   <- nrow(ea_data)/nsize
     #set.seed(777)

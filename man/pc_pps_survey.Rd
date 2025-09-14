@@ -27,6 +27,6 @@ stratum = rep(c(1,2),c(30,50))
 cluster <- c(1:30,1:50)
 cluster_pop <- sample(365:1309,80,replace=TRUE)
 sample_frame <- data.frame(stratum,cluster, cluster_pop)
-pc_pps_survey(data = sample_frame,nsize = 10)
-pc_pps_survey(data = sample_frame,nsize = c(10,7))
+pps_sample1 <- pc_pps_survey(data = sample_frame,nsize = 10)
+pps_sample2 <- pc_pps_survey(data = sample_frame,nsize = c(10,7))
 }

@@ -19,3 +19,8 @@ knitr::opts_chunk$set(
 ```{r setup}
 library(pcsurvey)
 ```
+If interest is to sample units, say clusters, proportional to their sizes, [pc_pps_survey()](https://pachaloh.github.io/pcsurvey/reference/pc_pps_survey.html) is the function. For example, your task would be to sample enumerations areas(EAs) within districts. With this setup, the primary sampling unit becomes the EA, and district becomes your stratum. For the function to work properly, your data frame of primary units must have three columns:
+
+  - stratum, that specifies strata from which the primary units is 
+  - cluster, that identifies the primary units and 
+  - cluster_pop that contains corresponding sizes of each primary unit (cluster). 

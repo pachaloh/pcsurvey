@@ -21,8 +21,8 @@
 #' cluster <- c(1:30,1:50)
 #' cluster_pop <- sample(365:1309,80,replace=TRUE)
 #' sample_frame <- data.frame(stratum,cluster, cluster_pop)
-#' pc_pps_survey(data = sample_frame,nsize = 10)
-#' pc_pps_survey(data = sample_frame,nsize = c(10,7))
+#' pps_sample1 <- pc_pps_survey(data = sample_frame,nsize = 10)
+#' pps_sample2 <- pc_pps_survey(data = sample_frame,nsize = c(10,7))
 
 pc_pps_survey = function (data, nsize = 20){
 
@@ -55,7 +55,7 @@ pc_pps_survey = function (data, nsize = 20){
 
 
     # #Systematically select (rows of) clusters (Adopted from MICS)
-    # cat("Stratum: ",i,"\n")
+    # cat("Stratum: ",i*100,"\n")
     # cat("Nsize: ",nsize[tracker],"\n")
     # cat("Interval: ",interval_k,"\n")
     # cat("Random start: ",randStart,"\n")

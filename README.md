@@ -33,12 +33,10 @@ library(pcsurvey)
 ### sampling with proportional to size
 
 If interest is to sample units, say clusters, proportional to their
-sizes,
+sizes, from strata, use
 [pc_pps_survey()](https://pachaloh.github.io/pcsurvey/reference/pc_pps_survey.html)
-is the function. For example, your task would be to sample enumerations
-areas(EAs) within districts. With this setup, the primary sampling unit
-becomes the EA, and district becomes your stratum. For the function to
-work properly, your data frame of primary units must have three columns:
+function. Regardless of your geographical setup or data structure,
+organize your data frame of primary units to have these three columns:
 
 - stratum, that specifies strata from which the primary units is
 - cluster, that identifies the primary units and
@@ -61,18 +59,19 @@ sample <- pc_pps_survey(sample_frame,nsize = c(10,7))
 
 ### Systematic sampling
 
-If, however, interest is to sample units using systematic technique,
+If, however, interest is just to sample units using systematic random
+sampling,
 [pc_sample_hh_survey()](https://pachaloh.github.io/pcsurvey/reference/pc_sample_hh_survey.html)
-comes in handy. This is more applicable when sampling households within
-different clusters. The data frame must contain an “ea_code” column that
-identifies an EA/cluster the units belong to. The same number of units
-is sampled from each ea_code. By default, it samples 20 cases.
+function comes in handy. This is more applicable when sampling, say,
+households from clusters. The data frame must contain a “cluster” column
+that identifies a cluster the units (households) belong to. The same
+number of units is sampled from each cluster.
 
 ``` r
 set.seed(1000)
-ea_code = rep(c(1,2),c(30,50))
+cluster = rep(c(1,2),c(30,50))
 hhno <- c(1:30,1:50)
-sample_frame <- data.frame(ea_code,hhno)
+sample_frame <- data.frame(cluster,hhno)
 
 sample <- pc_sample_hh_survey(sample_frame,10)
 ```
